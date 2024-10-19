@@ -1,5 +1,7 @@
 -- Script that creates a table users with requisite requirements
--- Creates a table with unique id-nn,ai,pk; email-str(255) name-str(255)
--- Creates a table with unique users.
-DROP TABLE IF EXISTS users;
-CREATE TABLE IF NOT EXISTS users (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, email CHAR(255) NOT NULL UNIQUE, name CHAR(255));
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    name VARCHAR(255),
+    country CHAR(2) NOT NULL DEFAULT 'US' CHECK (country IN ('US', 'CO', 'TN'))
+);
